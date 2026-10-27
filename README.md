@@ -2,7 +2,7 @@
 
 Este projeto demonstra a perda de atualizações em um contador lógico de pacotes
 de telemetria compartilhado por duas threads no Zephyr RTOS. A configuração
-incluída usa a placa NXP FRDM-K64F (`frdm_k64f`), suportada pela plataforma
+incluída usa a placa NXP FRDM-KL25Z (`frdm_kl25z`), suportada pela plataforma
 Freescale Kinetis do PlatformIO.
 
 ## Como a falha é reproduzida
@@ -26,10 +26,11 @@ incremento, como `atomic_inc()`, se isso atender aos requisitos do projeto.
 
 1. Instale o Visual Studio Code e a extensão **PlatformIO IDE** (ou instale o
    PlatformIO Core).
-2. Abra esta pasta como projeto no PlatformIO. A configuração já seleciona
-   `freescalekinetis`, `zephyr` e `frdm_k64f`; na primeira compilação, o
-   PlatformIO baixará as ferramentas e os pacotes necessários.
-3. Conecte a FRDM-K64F via USB e instale os drivers da interface de depuração
+2. Abra esta pasta como projeto no PlatformIO. A configuração seleciona
+   `freescalekinetis`, Zephyr e `frdm_kl25z`, além da versão do pacote Zephyr
+   especificada em `platformio.ini`; na primeira compilação, o PlatformIO
+   baixará as ferramentas e os pacotes necessários.
+3. Conecte a FRDM-KL25Z via USB e instale os drivers da interface de depuração
    CMSIS-DAP, se solicitado pelo sistema operacional.
 
 ## Compilar, gravar e visualizar
@@ -47,6 +48,6 @@ de ferramentas do PlatformIO no VS Code. O monitor serial está configurado para
 115200 baud. Após a execução, o terminal deve mostrar 1.000 pacotes registrados,
 2.000 incrementos solicitados e 1.000 atualizações perdidas.
 
-Para outra placa suportada pela plataforma PlatformIO Freescale Kinetis, ajuste
-`board` em `platformio.ini` e confira a configuração UART correspondente no
-device tree da placa.
+O device tree da FRDM-KL25Z seleciona UART0 como console serial e a configura
+para 115200 baud. O `monitor_speed` do `platformio.ini` corresponde a essa
+configuração.
