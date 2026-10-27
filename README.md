@@ -1,1 +1,2 @@
 # RaceCondition_PILOTO2026
+Crie um prompt para ser rodado em IA. O cógido gerado deve ser funcional e mostrar o problema de sincronismo de utilização de recursos compartilhados que leva a condição de corrida (Race Condition). Utilize um exemplo real que poderia levar a essa situação. Coloque o prompt e explique os resultados obtidos no moodle e o projeto criado no Github. Anexe o link do repositório com o projeto junto aos resultados obtidos.
